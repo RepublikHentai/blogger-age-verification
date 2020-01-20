@@ -1,5 +1,3 @@
-checkCookie(ageconfirmed);
-
 function setCookie(cname, value, exdays){
   var d = new Date();
   d.setTime(d.getTime() + (exdays * 24 * 60 * 60 * 1000));
@@ -21,7 +19,7 @@ function getCookie(cname) {
   return "";
 }
 function checkCookie(cookiename) {
-  var isConfirmed = getCookie(ageconfirmed);
+  var isConfirmed = getCookie(cookiename);
   var className = document.getElementsByClassName('age_verify-wrapper');
 
   if(isConfirmed == "true"){ // != || ==
