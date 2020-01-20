@@ -18,8 +18,9 @@ function getCookie(cname) {
   }
   return "";
 }
-function checkCookie(cookiename) {
-  var isConfirmed = getCookie(cookiename);
+function checkCookie() {
+  var cookieName = 'ageconfirmed';
+  var isConfirmed = getCookie(cookieName);
   var className = document.getElementsByClassName('age_verify-wrapper');
 
   if(isConfirmed == "true"){ // != || ==
@@ -31,7 +32,7 @@ function checkCookie(cookiename) {
   }
 }
 function displayCookie(){
-  var cookieName = 'ageconfirmed'
+  var cookieName = 'ageconfirmed';
   var dCookie = getCookie(cookieName);
   alert(dCookie);
 }
