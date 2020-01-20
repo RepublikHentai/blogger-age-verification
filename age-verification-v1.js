@@ -31,7 +31,8 @@ function checkCookie(cookiename) {
   }
 }
 function displayCookie(){
-  var dCookie = getCookie(ageconfirmed);
+  var cookieName = 'ageconfirmed'
+  var dCookie = getCookie(cookieName);
   alert(dCookie);
 }
 function varifAgeExit(){
