@@ -1,41 +1,30 @@
-function setCookie(cname, cvalue, exdays){
-  var d = new Date();
-  d.setTime(d.getTime() + (exdays * 24 * 60 * 60 * 1000));
-  var expires = "expires="+d.toUTCString();
-  document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
+function setCookie(e, o, t) {
+	var i = new Date;
+	i.setTime(i.getTime() + 24 * t * 60 * 60 * 1e3);
+	var n = "expires=" + i.toUTCString();
+	document.cookie = e + "=" + o + ";" + n + ";path=/"
 }
-function getCookie(cname) {
-  var name = cname + "=";
-  var ca = document.cookie.split(';');
-  for(var i = 0; i < ca.length; i++) {
-    var c = ca[i];
-    while (c.charAt(0) == ' ') {
-        c = c.substring(1);
-    }
-    if (c.indexOf(name) == 0) {
-        return c.substring(name.length, c.length);
-    }
-  }
-  return "";
+
+function getCookie(e) {
+	for (var o = e + "=", t = document.cookie.split(";"), i = 0; i < t.length; i++) {
+		for (var n = t[i];
+			" " == n.charAt(0);) n = n.substring(1);
+		if (0 == n.indexOf(o)) return n.substring(o.length, n.length)
+	}
+	return ""
 }
+
 function checkCookie() {
-  var cookieName = 'ageconfirmed';
-  var isConfirmed = getCookie(cookieName);
-  var className = document.getElementsByClassName('age_verify-wrapper');
-
-  if(isConfirmed == "true"){ // != || ==
-    for (var i = 0; i < className.length; i++) {
-      className[i].style.display = 'none';
-    }
-  }else{
-
-  }
+	var e = getCookie("ageconfirmed");
+	document.getElementById("age_verify-wrapper").style.display = "true" == e ? "none" : "grid"
 }
-function displayCookie(){
-  var cookieName = 'ageconfirmed';
-  var dCookie = getCookie(cookieName);
-  alert(dCookie);
-}
-function varifAgeExit(){
 
+function displayCookie() {
+	var e = getCookie("ageconfirmed");
+	alert(e)
 }
+
+function verifAgeEnter() {
+	setCookie("ageconfirmed", "true", 7), location.reload()
+}
+checkCookie();
